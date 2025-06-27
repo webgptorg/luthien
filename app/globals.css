@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark-first developer theme */
+    --background: 210 20% 6%;          /* Deep slate */
+    --foreground: 210 40% 98%;         /* Nearly white */
+    --card: 210 20% 12%;               /* Dark card */
+    --card-foreground: 210 40% 98%;
+    --popover: 210 20% 12%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;            /* Electric blue */
+    --primary-foreground: 210 40% 2%;
+    --secondary: 210 20% 20%;          /* Muted slate */
+    --secondary-foreground: 210 40% 98%;
+    --muted: 210 20% 20%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 142 71% 45%;             /* Emerald accent */
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 210 20% 25%;
+    --input: 210 20% 18%;
+    --ring: 217 91% 60%;
+    --chart-1: 217 91% 60%;            /* Blue */
+    --chart-2: 142 71% 45%;            /* Green */
+    --chart-3: 38 92% 50%;             /* Orange */
+    --chart-4: 269 91% 60%;            /* Purple */
+    --chart-5: 10 79% 60%;             /* Red */
+    --radius: 0.75rem;
+  }
+
+  /* Light mode fallback (keeping dark as primary) */
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 210 20% 6%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 20% 6%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 20% 6%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 210 20% 6%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 20% 35%;
+    --accent: 142 71% 45%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Developer-focused styling */
+  .code-block {
+    @apply bg-dev-slate-800 border border-dev-slate-700 rounded-lg p-4 font-mono text-sm;
+  }
+
+  /* Syntax highlighting */
+  .token.comment { color: #6b7280; }
+  .token.keyword { color: #8b5cf6; }
+  .token.string { color: #10b981; }
+  .token.function { color: #3b82f6; }
+  .token.variable { color: #f59e0b; }
+  .token.number { color: #ef4444; }
+  .token.operator { color: #64748b; }
+  .token.punctuation { color: #94a3b8; }
+  .token.property { color: #06b6d4; }
+  .token.tag { color: #8b5cf6; }
+  .token.attr-name { color: #f59e0b; }
+  .token.attr-value { color: #10b981; }
+  .token.jsx-tag { color: #8b5cf6; }
+  .token.jsx-text { color: #e2e8f0; }
+
+  .gradient-border {
+    background: linear-gradient(90deg, #3b82f6, #10b981, #f59e0b) padding-box,
+                linear-gradient(90deg, #3b82f6, #10b981, #f59e0b) border-box;
+    border: 2px solid transparent;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #0f172a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full;
+    background-color: #475569;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #64748b;
+  }
+}
+
+/* Grid background pattern */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Hide Next.js badge and error messages */
+body > nextjs-portal {
+  display: none;
+}
